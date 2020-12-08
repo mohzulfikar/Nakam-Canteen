@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "889424125431",
+    "firebase_url": "https://nakamfood1.firebaseio.com",
+    "project_id": "nakamfood1",
+    "storage_bucket": "nakamfood1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889424125431:android:86261d5afcec204a4ba2f2",
+        "android_client_info": {
+          "package_name": "com.example.nk2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889424125431-rt2vfgru89ivf5rko6smgrku555usvvi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFJrJCZ-xY6EZ_t6e4VqU22OrxOyut3Y8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889424125431-rt2vfgru89ivf5rko6smgrku555usvvi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
