@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".Admin_PengelolaanToko">
+
+
+    <TextView
+        android:id="@+id/LV_NamaToko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NamaToko"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/LV_Tentang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tentang"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/LV_Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:onClick="LV_Edit"/>
+
+    <Button
+        android:id="@+id/LV_Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"/>
+</LinearLayout>
