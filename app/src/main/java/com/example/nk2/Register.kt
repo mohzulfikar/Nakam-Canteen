@@ -74,7 +74,7 @@ class Register:AppCompatActivity() {
                             "isUser" to "1")
                         df.set(userInfo)
 
-                        val intent = Intent (applicationContext, MainActivity::class.java)
+                        val intent = Intent (applicationContext, Login::class.java)
                         startActivity(intent)
                         finish()
                     }

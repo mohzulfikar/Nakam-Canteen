@@ -17,16 +17,23 @@ class Admin_PengelolaanToko: AppCompatActivity() {
         val fAuth = FirebaseAuth.getInstance()
         var PTList: ListView? = null
 
-        val df = fStore.collection("User").get().addOnSuccessListener {
-
-            for(document in it) {
-                x.add(document.id)
-                PTList = findViewById<View>(R.id.PT_view) as ListView
-                val arrayAdapter = ArrayAdapter(this, R.layout.admin_listview, R.id.LV_NamaToko, x)
-                PTList!!.adapter = arrayAdapter
-
-            }
-        }
+//        val df = fStore.collection("Toko").get().addOnSuccessListener {
+//            for(document in it) {
+//                x.add(document.id)
+//                PTList = findViewById<View>(R.id.PT_view) as ListView
+//                val arrayAdapter = ArrayAdapter(this, R.layout.admin_listview, R.id.LV_NamaToko, x)
+//                PTList!!.adapter = arrayAdapter
+//
+//            }
+//        }
+         val df = fStore.collection("Toko").get().addOnSuccessListener {
+             for(document in it) {
+                 x.add(document.get("NamaToko").toString())
+                 PTList = findViewById<View>(R.id.PT_view) as ListView
+                 val arrayAdapter = ArrayAdapter(this, R.layout.admin_listview, R.id.LV_NamaToko, x)
+                 PTList!!.adapter = arrayAdapter
+             }
+         }
 
 //        readData(fAuth,fStore)
     }

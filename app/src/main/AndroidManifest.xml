@@ -17,9 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
         <activity android:name=".Admin_Beranda"></activity>
         <activity android:name=".User_Beranda"></activity>
+        <activity android:name=".User_Profil"></activity>
         <activity android:name=".Admin_PengelolaanToko"></activity>
         <activity android:name=".Admin_EditToko"></activity>
     </application>

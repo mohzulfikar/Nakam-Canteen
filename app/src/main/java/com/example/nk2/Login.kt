@@ -63,9 +63,9 @@ class Login:AppCompatActivity() {
         df.get().addOnSuccessListener {
             Log.d("TAG","Berhasil Login: "+ it.getData())
 
-            if(it.getString("isAdmin") != null){
+            if(it.getString("isAdmin") == "1"){
                 startActivity(Intent (applicationContext, Admin_Beranda::class.java))
-            }else if(it.getString("isUser") != null){
+            }else if(it.getString("isUser") == "1"){
                 startActivity(Intent (applicationContext, User_Beranda::class.java))
             }
         }.addOnFailureListener{
