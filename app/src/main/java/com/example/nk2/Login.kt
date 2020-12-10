@@ -2,7 +2,6 @@ package com.example.nk2
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
@@ -10,7 +9,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -25,6 +23,7 @@ class Login:AppCompatActivity() {
         val btnlogin = findViewById<Button>(R.id.login_btn_login)
 
         val fAuth = FirebaseAuth.getInstance()
+
 
 
         btnlogin.setOnClickListener {
@@ -65,9 +64,9 @@ class Login:AppCompatActivity() {
             Log.d("TAG","Berhasil Login: "+ it.getData())
 
             if(it.getString("isAdmin") != null){
-                startActivity(Intent (applicationContext, Beranda_Admin::class.java))
+                startActivity(Intent (applicationContext, Admin_Beranda::class.java))
             }else if(it.getString("isUser") != null){
-                startActivity(Intent (applicationContext, Beranda_User::class.java))
+                startActivity(Intent (applicationContext, User_Beranda::class.java))
             }
         }.addOnFailureListener{
                 Toast.makeText(this,"Akun tidak ada",Toast.LENGTH_SHORT).show()
@@ -80,4 +79,5 @@ class Login:AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
 }

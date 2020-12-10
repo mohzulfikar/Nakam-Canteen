@@ -18,8 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Beranda_Admin"></activity>
-        <activity android:name=".Beranda_User"></activity>
+        <activity android:name=".Admin_Beranda"></activity>
+        <activity android:name=".User_Beranda"></activity>
+        <activity android:name=".Admin_PengelolaanToko"></activity>
+        <activity android:name=".Admin_EditToko"></activity>
     </application>
 
 </manifest>

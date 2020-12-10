@@ -30,7 +30,7 @@ class Register:AppCompatActivity() {
         val fAuth = FirebaseAuth.getInstance()
         val fStore = FirebaseFirestore.getInstance()
         if(fAuth.currentUser != null){
-            val intent = Intent (applicationContext, MainActivity::class.java)
+            val intent = Intent (applicationContext, Login::class.java)
             startActivity(intent)
             finish()
         }
