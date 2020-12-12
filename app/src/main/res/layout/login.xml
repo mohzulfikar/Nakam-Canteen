@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,17 +13,26 @@
         tools:layout_editor_absoluteX="180dp"
         tools:layout_editor_absoluteY="135dp">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/nacanten"/>
         <TextView
             android:id="@+id/login_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LOGIN"
+            android:textStyle="bold"
+            android:gravity="center"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
             android:ems="10"
             android:hint="Email"
             android:inputType="textPersonName" />
@@ -31,6 +41,9 @@
             android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPersonName" />
@@ -39,6 +52,9 @@
             android:id="@+id/login_btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:text="Login" />
 
         <TextView
@@ -46,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="register"
-            android:onClick="register"/>
+            android:onClick="register"
+            android:text="REGISTER" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
