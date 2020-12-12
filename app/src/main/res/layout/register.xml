@@ -16,13 +16,22 @@
             android:id="@+id/register_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="register"
+            android:text="REGISTER"
+            android:textStyle="bold"
+            android:gravity="center"
             android:textSize="24sp" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/nacanten"/>
 
         <EditText
             android:id="@+id/register_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Nama" />
@@ -31,6 +40,9 @@
             android:id="@+id/register_nim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
             android:ems="10"
             android:hint="NIM"
             android:inputType="textPersonName" />
@@ -39,6 +51,9 @@
             android:id="@+id/register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:ems="10"
             android:hint="Email"
             android:inputType="textPersonName" />
@@ -47,6 +62,9 @@
             android:id="@+id/register_NomorTelp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Nomor Telepon" />
@@ -55,6 +73,9 @@
             android:id="@+id/register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPersonName" />
@@ -63,6 +84,9 @@
             android:id="@+id/register_btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
             android:text="register" />
 
         <TextView
@@ -70,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="login"
+            android:text="L O G I N"
             android:onClick="login"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
