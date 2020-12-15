@@ -9,38 +9,53 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Admin_PengelolaanToko: AppCompatActivity() {
-        var x = arrayListOf<String>()
+        var arrayNamaToko = arrayListOf<String>()
+        var arrayIdToko = arrayListOf<String>()
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.admin_pengelolaantoko)
         val fStore = FirebaseFirestore.getInstance()
-        val fAuth = FirebaseAuth.getInstance()
-        var PTList: ListView? = null
+
+        var ListNamaToko: ListView? = null
+
 
 //        val df = fStore.collection("Toko").get().addOnSuccessListener {
 //            for(document in it) {
-//                x.add(document.id)
-//                PTList = findViewById<View>(R.id.PT_view) as ListView
-//                val arrayAdapter = ArrayAdapter(this, R.layout.admin_listview, R.id.LV_NamaToko, x)
-//                PTList!!.adapter = arrayAdapter
+//                arrayNamaToko.add(document.id)
+//                ListNamaToko = findViewById<View>(R.id.PT_view) as ListView
+//                val arrayAdapter = ArrayAdapter(this, R.layout.admin_listview, R.id.LV_NamaToko, arrayNamaToko)
+//                ListNamaToko!!.adapter = arrayAdapter
 //
 //            }
 //        }
+
          val df = fStore.collection("Toko").get().addOnSuccessListener {
              for(document in it) {
-                 x.add(document.get("NamaToko").toString())
-                 PTList = findViewById<View>(R.id.PT_view) as ListView
-                 val arrayAdapter = ArrayAdapter(this, R.layout.admin_listview, R.id.LV_NamaToko, x)
-                 PTList!!.adapter = arrayAdapter
+                 arrayNamaToko.add(document.get("NamaToko").toString())
+                 arrayIdToko.add(document.id).toString()
+
+                 ListNamaToko = findViewById<View>(R.id.PT_view) as ListView
+                 val AA_NamaToko = ArrayAdapter(this, R.layout.admin_listview, R.id.LV_NamaToko, arrayNamaToko)
+
+                 ListNamaToko!!.adapter = AA_NamaToko
+
              }
          }
 
 //        readData(fAuth,fStore)
     }
 
+    fun LV_Edit(view: View) {
+        val intent = Intent (applicationContext, Admin_EditToko::class.java)
+        intent.putExtra("ID_Toko",arrayIdToko.get(0))
+        startActivity(intent)
+
+
+    }
+
 //    fun LV_Edit(view: View) {
-//        val intent = Intent (applicationContext, Login::class.java)
-//        intent.putExtra("ID_Toko",x)
+//        val intent = Intent (applicationContearrayNamaTokot, Login::class.java)
+//        intent.putExtra("ID_Toko",arrayNamaToko)
 //        startActivity(intent)
 //
 //    }

@@ -9,8 +9,6 @@ class Admin_Beranda: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.admin_beranda)
-
-
     }
     fun Btn_adminEdit  (view: View) {
         val intent = Intent (applicationContext, Admin_PengelolaanToko::class.java)
