@@ -23,7 +23,6 @@
             android:layout_height="wrap_content"
             android:text="LOGIN"
             android:textStyle="bold"
-            android:textColor="@color/overlay_dark_90"
             android:gravity="center"
             android:textSize="24sp" />
 
@@ -56,9 +55,7 @@
             android:paddingTop="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:textColor="@color/overlay_dark_90"
-            android:textStyle="bold"
-            android:text="L O G I N" />
+            android:text="Login" />
 
         <TextView
             android:id="@+id/login_SignIn"
@@ -66,8 +63,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="register"
-            android:textColor="@color/overlay_dark_90"
-            android:textStyle="bold"
-            android:text="R E G I S T E R" />
+            android:text="REGISTER" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
