@@ -2,6 +2,7 @@ package com.example.nk2
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ class Admin_EditToko: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.admin_edit_toko)
 
+        val HeaderNamaToko = findViewById<TextView>(R.id.ET_HEADERnamaToko);
         val NamaToko = findViewById<TextView>(R.id.ET_namaToko);
         val Menu1= findViewById<EditText>(R.id.ET_Menu1);
         val Menu2 = findViewById<EditText>(R.id.ET_Menu2);
@@ -24,6 +26,8 @@ class Admin_EditToko: AppCompatActivity() {
         val df = fStore.collection("Toko").document(IdToko.toString())
         df.get().addOnSuccessListener {
             if (IdToko != null){
+
+                HeaderNamaToko.setText(it.getString("NamaToko"))
                 NamaToko.setText(it.getString("NamaToko"))
                 Menu1.setText(it.getString("1"))
                 Menu2.setText(it.getString("2"))
@@ -31,24 +35,19 @@ class Admin_EditToko: AppCompatActivity() {
             }
         }
 
-        val TokoInfo = hashMapOf(
-            "NamaToko" to NamaToko.text,
-            "Deskripsi" to Deskripsi.text,
-            "1" to Menu1.text,
-            "2" to Menu2.text)
+//        val TokoInfo = hashMapOf(
+//            "NamaToko" to NamaToko.text,
+//            "Deskripsi" to Deskripsi.text,
+//            "1" to Menu1.text,
+//            "2" to Menu2.text)
 
         findViewById<Button>(R.id.ET_Update).setOnClickListener {
-            df.update(TokoInfo as Map<String, Any>)
+            df.update("Deskripsi", "${Deskripsi.text}")
+            Toast.makeText(this,HeaderNamaToko.text, Toast.LENGTH_SHORT).show()
             val intent = Intent(applicationContext, Admin_PengelolaanToko::class.java)
             startActivity(intent)
         }
 
-
-
-
-        }
-
-
-
+    }
 
 }

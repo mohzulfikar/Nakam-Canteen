@@ -21,32 +21,40 @@
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <TextView
-            android:id="@+id/ET_namaToko"
+            android:id="@+id/ET_HEADERnamaToko"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama Toko"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:text="Nama Toko"/>
+        <EditText
+            android:id="@+id/ET_namaToko"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
 
+            />
         <EditText
             android:id="@+id/ET_deskripsiToko"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Deskripsi" />
+
+            />
 
         <TextView
             android:id="@+id/ET_menuToko"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Menu"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:text="Menu"/>
 
         <EditText
             android:id="@+id/ET_Menu1"
@@ -54,7 +62,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Menu1" />
+
+            />
 
         <EditText
             android:id="@+id/ET_Menu2"
@@ -62,7 +71,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Menu2" />
+
+            />
 
         <Button
             android:id="@+id/ET_Update"

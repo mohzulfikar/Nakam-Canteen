@@ -11,10 +11,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 class Admin_PengelolaanToko: AppCompatActivity() {
         var arrayNamaToko = arrayListOf<String>()
         var arrayIdToko = arrayListOf<String>()
+        val fStore = FirebaseFirestore.getInstance()
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.admin_pengelolaantoko)
-        val fStore = FirebaseFirestore.getInstance()
+
 
         var ListNamaToko: ListView? = null
 
@@ -51,6 +52,10 @@ class Admin_PengelolaanToko: AppCompatActivity() {
         startActivity(intent)
 
 
+    }
+
+    fun Delete(view: View) {
+        val df = fStore.collection("Toko").document("4").delete()
     }
 
 //    fun LV_Edit(view: View) {
