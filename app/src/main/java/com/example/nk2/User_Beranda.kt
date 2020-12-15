@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.nk2.controller.MahasiswaController
 import com.example.nk2.model.Mahasiswa
 import com.example.nk2.model.Toko
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,15 +30,15 @@ class User_Beranda: AppCompatActivity() {
     fun getAllToko(){
         Data.clear()
         var tokoItem : Toko
-        val df = fStore.collection("User").get().addOnSuccessListener { result ->
+        val df = fStore.collection("Toko").get().addOnSuccessListener { result ->
             for (document in result) {
-//                idToko = document.id
-//                nama = document.data.get("NamaToko").toString()
-//                desk = document.data.get("Deskripsi").toString()
-//                telp = document.data.get("Telp").toString()
-//                menu = document.data.get("Menu").toString()
-//                tokoItem = Toko(idToko, nama, desk, telp, menu)
-                Log.d(ContentValues.TAG, "${document.id} => ${document.get("Email")}")
+                idToko = document.id
+                nama = document.data.get("NamaToko").toString()
+                desk = document.data.get("Deskripsi").toString()
+                telp = document.data.get("Telp").toString()
+                menu = document.data.get("Menu").toString()
+                tokoItem = Toko(idToko, nama, desk, telp, menu)
+                Log.d(ContentValues.TAG, "${document.id} => ${tokoItem.toString()}")
             }
         }.addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "Error getting documents: ", exception)
