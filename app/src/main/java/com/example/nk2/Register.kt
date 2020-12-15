@@ -71,7 +71,8 @@ class Register:AppCompatActivity() {
                             "Nim" to nim,
                             "Telp" to telp,
                             "Email" to email,
-                            "isUser" to "1")
+                            "isUser" to "1",
+                            "isAdmin" to "0")
                         df.set(userInfo)
 
                         val intent = Intent (applicationContext, Login::class.java)
