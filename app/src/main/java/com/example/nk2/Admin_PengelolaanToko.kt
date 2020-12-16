@@ -2,22 +2,25 @@ package com.example.nk2
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.nk2.adapter.PengelolaanTokoAdapter
+import com.example.nk2.model.Toko
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.admin_pengelolaantoko.*
 
 class Admin_PengelolaanToko: AppCompatActivity() {
-        var arrayNamaToko = arrayListOf<String>()
+        var ListToko = ArrayList<Toko>()
         var arrayIdToko = arrayListOf<String>()
         val fStore = FirebaseFirestore.getInstance()
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.admin_pengelolaantoko)
 
-
-        var ListNamaToko: ListView? = null
 
 
 //        val df = fStore.collection("Toko").get().addOnSuccessListener {
@@ -29,34 +32,29 @@ class Admin_PengelolaanToko: AppCompatActivity() {
 //
 //            }
 //        }
+         RC_toko.layoutManager = LinearLayoutManager(this)
 
          val df = fStore.collection("Toko").get().addOnSuccessListener {
              for(document in it) {
-                 arrayNamaToko.add(document.get("NamaToko").toString())
-                 arrayIdToko.add(document.id).toString()
+//                 Deskripsi: String, var Telp: String, var Menu: String
+                 val IdToko = document.id.toString()
+                 val NamaToko = document.get("NamaToko").toString()
+                 val Deskripsi = document.get("Deskripsi").toString()
+                 val Telp = document.get("Telp").toString()
+                 ListToko.add(Toko("$IdToko","$NamaToko","$Deskripsi","$Telp","10juta"))
 
-                 ListNamaToko = findViewById<View>(R.id.PT_view) as ListView
-                 val AA_NamaToko = ArrayAdapter(this, R.layout.admin_listview, R.id.LV_NamaToko, arrayNamaToko)
-
-                 ListNamaToko!!.adapter = AA_NamaToko
-
+//                 arrayIdToko.add(IdToko)
+                 Log.d("TAG_ID_Toko",IdToko)
              }
+             val PengelolaanTokoAdapter = PengelolaanTokoAdapter(ListToko,this, this)
+             PengelolaanTokoAdapter.notifyDataSetChanged()
+             RC_toko.adapter = PengelolaanTokoAdapter
          }
+
 
 //        readData(fAuth,fStore)
     }
 
-    fun LV_Edit(view: View) {
-        val intent = Intent (applicationContext, Admin_EditToko::class.java)
-        intent.putExtra("ID_Toko",arrayIdToko.get(0))
-        startActivity(intent)
-
-
-    }
-
-    fun Delete(view: View) {
-        val df = fStore.collection("Toko").document("4").delete()
-    }
 
 //    fun LV_Edit(view: View) {
 //        val intent = Intent (applicationContearrayNamaTokot, Login::class.java)
