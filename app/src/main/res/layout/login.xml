@@ -63,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="register"
+            android:clickable="true"
             android:text="REGISTER" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

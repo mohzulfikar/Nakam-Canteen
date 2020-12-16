@@ -30,11 +30,11 @@ class Register:AppCompatActivity() {
 
         val fAuth = FirebaseAuth.getInstance()
         val fStore = FirebaseFirestore.getInstance()
-        if(fAuth.currentUser != null){
-            val intent = Intent (applicationContext, Login::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        if(fAuth.currentUser != null){
+//            val intent = Intent (applicationContext, Login::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         btnRegister.setOnClickListener(View.OnClickListener {
 
