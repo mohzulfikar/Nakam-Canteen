@@ -17,7 +17,7 @@ class Login:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-
+        supportActionBar?.title = applicationContext.getString(R.string.login)
         val loginEmail = findViewById<EditText>(R.id.login_email)
         val loginPass = findViewById<EditText>(R.id.login_password)
         val btnlogin = findViewById<Button>(R.id.login_btn_login)
@@ -64,9 +64,9 @@ class Login:AppCompatActivity() {
             Log.d("TAG","Berhasil Login: "+ it.getData())
 
             if(it.getString("isAdmin") == "1"){
-                startActivity(Intent (applicationContext, Admin_Beranda::class.java))
+                startActivity(Intent (applicationContext, AdminBeranda::class.java))
             }else if(it.getString("isUser") == "1"){
-                startActivity(Intent (applicationContext, User_Beranda::class.java))
+                startActivity(Intent (applicationContext, MahasiswaBeranda::class.java))
             }
         }.addOnFailureListener{
                 Toast.makeText(this,"Akun tidak ada",Toast.LENGTH_SHORT).show()

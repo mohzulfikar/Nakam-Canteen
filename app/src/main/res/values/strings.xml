@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">NK2</string>
     <string name="menu_toko">Menu Toko</string>
+    <string name="hapus_sukses">Berhasil menghapus data</string>
+    <string name="beranda">Beranda</string>
+    <string name="detail_toko">Detail Toko</string>
+    <string name="mhs_profil">Profil</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="pengelolaan_toko">Pengelolaan Toko</string>
+    <string name="edit_toko">Form Edit Toko</string>
 </resources>

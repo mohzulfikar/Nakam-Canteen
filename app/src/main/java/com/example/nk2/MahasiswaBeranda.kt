@@ -4,18 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nk2.adapter.BerandaAdapter
+import com.example.nk2.adapter.MahasiswaBerandaAdapter
 import com.example.nk2.model.Toko
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.user_beranda.*
-import kotlinx.coroutines.tasks.await
 
-class User_Beranda : AppCompatActivity() {
+class MahasiswaBeranda : AppCompatActivity() {
 
     val fStore = FirebaseFirestore.getInstance()
     var Data: MutableList<Toko> = arrayListOf()
@@ -28,7 +24,7 @@ class User_Beranda : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_beranda)
-
+        supportActionBar?.title = applicationContext.getString(R.string.beranda)
         rc_card.layoutManager = LinearLayoutManager(this)
 
         val df = fStore.collection("Toko").get().addOnSuccessListener {
@@ -47,7 +43,7 @@ class User_Beranda : AppCompatActivity() {
                     "${document.id} => $Data"
                 )
             }
-            val adapter = BerandaAdapter(Data, this, this)
+            val adapter = MahasiswaBerandaAdapter(Data, this, this)
             adapter.notifyDataSetChanged()
             //tampilkan data dalam recycler view
             rc_card!!.adapter = adapter
@@ -66,7 +62,7 @@ class User_Beranda : AppCompatActivity() {
     }
 
     fun beranda_profil(view: View) {
-        val intent = Intent(applicationContext, User_Profil::class.java)
+        val intent = Intent(applicationContext, MahasiswaProfil::class.java)
         startActivity(intent)
     }
 

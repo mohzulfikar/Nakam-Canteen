@@ -2,19 +2,17 @@ package com.example.nk2
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
-class Admin_EditToko: AppCompatActivity() {
+class AdminEditToko: AppCompatActivity() {
     val fStore = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.admin_edit_toko)
-
+        supportActionBar?.title = applicationContext.getString(R.string.edit_toko)
         val HeaderNamaToko = findViewById<TextView>(R.id.ET_HEADERnamaToko);
         val NamaToko = findViewById<TextView>(R.id.ET_namaToko);
         val Menu1= findViewById<EditText>(R.id.ET_Menu1);
@@ -44,7 +42,7 @@ class Admin_EditToko: AppCompatActivity() {
         findViewById<Button>(R.id.ET_Update).setOnClickListener {
             df.update("Deskripsi", "${Deskripsi.text}")
             Toast.makeText(this,HeaderNamaToko.text, Toast.LENGTH_SHORT).show()
-            val intent = Intent(applicationContext, Admin_PengelolaanToko::class.java)
+            val intent = Intent(applicationContext, AdminPengelolaanToko::class.java)
             startActivity(intent)
         }
 

@@ -19,6 +19,7 @@ class Register:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register)
+        supportActionBar?.title = applicationContext.getString(R.string.register)
         val registerNama = findViewById<EditText>(R.id.register_nama)
         val registerNim = findViewById<EditText>(R.id.register_nim)
         val registerEmail = findViewById<EditText>(R.id.register_email)

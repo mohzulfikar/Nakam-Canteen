@@ -6,11 +6,11 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
-class Admin_Beranda: AppCompatActivity() {
+class AdminBeranda: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.admin_beranda)
-
+        supportActionBar?.title = applicationContext.getString(R.string.beranda)
         val fStore = FirebaseFirestore.getInstance()
         val df = fStore.collection("Toko").document("3")
 //        var id: String, var NamaToko: String, var Deskripsi: String, var Telp: String, var Menu: String
@@ -23,7 +23,7 @@ class Admin_Beranda: AppCompatActivity() {
         df.set(data)
     }
     fun Btn_adminEdit  (view: View) {
-        val intent = Intent (applicationContext, Admin_PengelolaanToko::class.java)
+        val intent = Intent (applicationContext, AdminPengelolaanToko::class.java)
         startActivity(intent)
         finish()
     }

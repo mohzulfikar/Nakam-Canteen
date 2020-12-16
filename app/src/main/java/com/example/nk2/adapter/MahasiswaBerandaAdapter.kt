@@ -10,11 +10,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nk2.CustomOnItemClickListener
 import com.example.nk2.R
-import com.example.nk2.UserClickToko
+import com.example.nk2.MahasiswaClickToko
 import com.example.nk2.model.Toko
 import kotlinx.android.synthetic.main.user_beranda_toko_item.view.*
 
-class BerandaAdapter(private val Tokos:MutableList<Toko>, val context: Context, val activity: Activity) : RecyclerView.Adapter<BerandaAdapter.Holder>(){
+class MahasiswaBerandaAdapter(private val Tokos:MutableList<Toko>, val context: Context, val activity: Activity) : RecyclerView.Adapter<MahasiswaBerandaAdapter.Holder>(){
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(toko: Toko) {
             with(itemView){
@@ -26,14 +26,14 @@ class BerandaAdapter(private val Tokos:MutableList<Toko>, val context: Context, 
                         val item = Tokos.get(position)
                         var itemName = item.NamaToko
                         Log.d("***", "${position}");
-                        val intent = Intent(context, UserClickToko::class.java)
-                        intent.putExtra(UserClickToko.EXTRA_POSITION, position)
-                        intent.putExtra(UserClickToko.EXTRA_TOKO, toko)
+                        val intent = Intent(context, MahasiswaClickToko::class.java)
+                        intent.putExtra(MahasiswaClickToko.EXTRA_POSITION, position)
+                        intent.putExtra(MahasiswaClickToko.EXTRA_TOKO, toko)
 //                        intent.putExtra("ID", item.id)
 //                        intent.putExtra("NAMA", item.NamaToko)
 //                        intent.putExtra("DESC", item.Deskripsi)
 //                        intent.putExtra("MENU", item.Menu)
-                        activity.startActivityForResult(intent, UserClickToko.VIEW_MENU)
+                        activity.startActivityForResult(intent, MahasiswaClickToko.VIEW_MENU)
                     }
                 }))
 //                lbList.setOnClickListener(CustomOnItemClickListener(adapterPosition, object : CustomOnItemClickListener.OnItemClickCallback {
@@ -52,11 +52,11 @@ class BerandaAdapter(private val Tokos:MutableList<Toko>, val context: Context, 
             }
         }
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BerandaAdapter.Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MahasiswaBerandaAdapter.Holder {
         return Holder(LayoutInflater.from(parent.context).inflate(R.layout.user_beranda_toko_item,parent,false))
     }
 
-    override fun onBindViewHolder(holder: BerandaAdapter.Holder, position: Int) {
+    override fun onBindViewHolder(holder: MahasiswaBerandaAdapter.Holder, position: Int) {
         holder.bind(Tokos[position])
     }
 

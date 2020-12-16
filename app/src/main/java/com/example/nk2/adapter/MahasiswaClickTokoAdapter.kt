@@ -2,7 +2,6 @@ package com.example.nk2.adapter
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +9,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nk2.CustomOnItemClickListener
 import com.example.nk2.R
-import com.example.nk2.UserClickToko
 import com.example.nk2.model.Menu
 import kotlinx.android.synthetic.main.user_click_toko_item.view.*
 
-class UserClickTokoAdapter (private val Menus:MutableList<Menu>, val context: Context, val activity: Activity) : RecyclerView.Adapter<UserClickTokoAdapter.Holder>(){
+class MahasiswaClickTokoAdapter (private val Menus:MutableList<Menu>, val context: Context, val activity: Activity) : RecyclerView.Adapter<MahasiswaClickTokoAdapter.Holder>(){
         inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             fun bind(menu: Menu) {
                 with(itemView){
@@ -35,11 +33,11 @@ class UserClickTokoAdapter (private val Menus:MutableList<Menu>, val context: Co
                 }
             }
         }
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserClickTokoAdapter.Holder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MahasiswaClickTokoAdapter.Holder {
             return Holder(LayoutInflater.from(parent.context).inflate(R.layout.user_click_toko_item,parent,false))
         }
 
-        override fun onBindViewHolder(holder: UserClickTokoAdapter.Holder, position: Int) {
+        override fun onBindViewHolder(holder: MahasiswaClickTokoAdapter.Holder, position: Int) {
             holder.bind(Menus[position])
         }
 
