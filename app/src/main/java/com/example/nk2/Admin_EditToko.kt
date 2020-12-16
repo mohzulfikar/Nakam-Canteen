@@ -29,8 +29,8 @@ class Admin_EditToko: AppCompatActivity() {
 
                 HeaderNamaToko.setText(it.getString("NamaToko"))
                 NamaToko.setText(it.getString("NamaToko"))
-                Menu1.setText(it.getString("1"))
-                Menu2.setText(it.getString("2"))
+//                Menu1.setText(it.getString("1"))
+//                Menu2.setText(it.getString("2"))
                 Deskripsi.setText(it.getString("Deskripsi"))
             }
         }
