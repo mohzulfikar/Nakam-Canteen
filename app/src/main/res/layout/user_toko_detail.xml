@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_card"
+        android:layout_width="409dp"
+        android:layout_height="627dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/user_toko_detail_item" />
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="16dp">-->
+
+    <RelativeLayout
+        android:layout_width="410dp"
+        android:layout_height="106dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/rc_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imgList"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_baseline_store_24" />
+
+        <TextView
+            android:id="@+id/tv_toko_nama"
+            android:layout_width="181dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="17dp"
+            android:layout_toEndOf="@+id/imgList"
+            android:text="Nama Toko"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_toko_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="17dp"
+            android:layout_toEndOf="@+id/imgList"
+            android:text="Deskripsi" />
+    </RelativeLayout>
+
+
+    <!--            </LinearLayout>-->
+</androidx.constraintlayout.widget.ConstraintLayout>

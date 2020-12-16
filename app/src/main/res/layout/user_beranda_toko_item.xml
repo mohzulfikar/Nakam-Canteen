@@ -51,7 +51,7 @@
                     android:src="@drawable/ic_baseline_store_24" />
 
                 <TextView
-                    android:id="@+id/lbList"
+                    android:id="@+id/tv_toko_nama"
                     android:layout_width="181dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -65,17 +65,17 @@
                     android:text="Nama Toko"
                     android:textStyle="bold" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/lbJenis"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_alignParentTop="true"-->
-<!--                    android:layout_marginStart="24dp"-->
-<!--                    android:layout_marginTop="39dp"-->
-<!--                    android:layout_marginEnd="17dp"-->
-<!--                    android:layout_marginBottom="17dp"-->
-<!--                    android:layout_toEndOf="@+id/imgList"-->
-<!--                    android:text="De" />-->
+                <TextView
+                    android:id="@+id/tv_toko_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="39dp"
+                    android:layout_marginEnd="17dp"
+                    android:layout_marginBottom="17dp"
+                    android:layout_toEndOf="@+id/imgList"
+                    android:text="Deskripsi" />
             </RelativeLayout>
 
 
