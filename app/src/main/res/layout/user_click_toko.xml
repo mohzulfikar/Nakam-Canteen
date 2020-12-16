@@ -6,10 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:orientation="horizontal"-->
+    <!--                android:padding="16dp">-->
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rc_card"
-        android:layout_width="409dp"
-        android:layout_height="627dp"
+        android:id="@+id/menu_rc_card"
+        android:layout_width="414dp"
+        android:layout_height="618dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -17,17 +23,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/user_click_toko_item" />
-    <!--            <LinearLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="match_parent"-->
-    <!--                android:orientation="horizontal"-->
-    <!--                android:padding="16dp">-->
 
     <RelativeLayout
         android:layout_width="410dp"
         android:layout_height="106dp"
         android:padding="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/rc_card"
+        app:layout_constraintBottom_toTopOf="@+id/menu_rc_card"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -37,6 +39,16 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/ic_baseline_store_24" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="125dp"
+            android:layout_height="42dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="183dp"
+            android:layout_marginTop="49dp"
+            android:layout_toEndOf="@+id/imgList"
+            app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
 
         <TextView
             android:id="@+id/tv_toko_klik_nama"

@@ -22,8 +22,9 @@ class User_Beranda : AppCompatActivity() {
     var idToko = ""
     var desk = ""
     var nama = ""
-    var menu = ""
     var telp = ""
+    var menu = ArrayList<String>()
+    var harga = ArrayList<Long>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_beranda)
@@ -33,24 +34,28 @@ class User_Beranda : AppCompatActivity() {
         val df = fStore.collection("Toko").get().addOnSuccessListener {
             var tokoItem: Toko
             for(document in it) {
-                val name = document.data["name"].toString()
                 idToko = document.id
                 nama = document.data["NamaToko"].toString()
                 desk = document.data["Deskripsi"].toString()
                 telp = document.data["Telp"].toString()
-                menu = document.data["Menu"].toString()
-                tokoItem = Toko(idToko, nama, desk, telp, menu)
+                menu = document.data["Menu"] as ArrayList<String>
+                harga = document.data["Harga"] as ArrayList<Long>
+                tokoItem = Toko(idToko, nama, desk, telp, menu, harga)
                 Data.add(tokoItem)
-//                Log.d(
-//                    android.content.ContentValues.TAG,
-//                    "${document.id} => ${Data}"
-//                )
+                Log.d(
+                    android.content.ContentValues.TAG,
+                    "${document.id} => $Data"
+                )
             }
             val adapter = BerandaAdapter(Data, this, this)
             adapter.notifyDataSetChanged()
             //tampilkan data dalam recycler view
             rc_card!!.adapter = adapter
             Log.d("nilainya", Data.size.toString())
+            Log.d(
+                android.content.ContentValues.TAG,
+                "? => $Data"
+            )
         }
 //        callbackToko : MyCallback
 //        getToko(object: MyCallback {

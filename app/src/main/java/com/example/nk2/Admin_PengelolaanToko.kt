@@ -41,7 +41,7 @@ class Admin_PengelolaanToko: AppCompatActivity() {
                  val NamaToko = document.get("NamaToko").toString()
                  val Deskripsi = document.get("Deskripsi").toString()
                  val Telp = document.get("Telp").toString()
-                 ListToko.add(Toko("$IdToko","$NamaToko","$Deskripsi","$Telp","10juta"))
+                 ListToko.add(Toko("$IdToko","$NamaToko","$Deskripsi","$Telp", arrayListOf(), arrayListOf()))
 
 //                 arrayIdToko.add(IdToko)
                  Log.d("TAG_ID_Toko",IdToko)
