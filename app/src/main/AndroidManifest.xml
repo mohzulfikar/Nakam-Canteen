@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NK2">
         <activity android:name=".MahasiswaClickToko" />
-        <activity android:name=".Register">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Login" />
+        <activity android:name=".Register" />
         <activity android:name=".AdminBeranda" />
         <activity android:name=".MahasiswaBeranda" />
         <activity android:name=".MahasiswaProfil" />
