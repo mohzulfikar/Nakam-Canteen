@@ -1,7 +1,9 @@
 package com.example.nk2
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
@@ -40,5 +42,11 @@ class AdminPengelolaanUser : AppCompatActivity() {
 
 
 
+    }
+
+    fun RegisUser(view: View) {
+        val intent = Intent (applicationContext, Register::class.java)
+        startActivity(intent)
+        finish()
     }
 }
