@@ -75,7 +75,6 @@ class MahasiswaClickTokoAdapter (private val Menus:MutableList<Menu>, val contex
                         //Toast.makeText(itemView.context, "Cart size $quantity", Toast.LENGTH_SHORT).show()
                     }
 
-
                 }
             }
         }

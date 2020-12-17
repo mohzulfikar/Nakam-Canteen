@@ -1,8 +1,10 @@
 package com.example.nk2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nk2.adapter.MahasiswaClickTokoAdapter
 import com.example.nk2.model.Menu
@@ -54,12 +56,18 @@ class MahasiswaClickToko : AppCompatActivity(){
             //tampilkan data dalam recycler view
             menu_rc_card!!.adapter = adapter
             cart_size.text = ShoppingCart.getShoppingCartSize().toString()
+
+            // Button cart
+            basketButton.setOnClickListener {
+                startActivity(Intent(this, ShoppingCartActivity::class.java))
+                Toast.makeText(basketButton.context, "iye", Toast.LENGTH_SHORT).show()
+            }
+
             Log.d("nilainy itua", menus.size.toString())
             Log.d(
                 android.content.ContentValues.TAG,
                 "? => $menus"
             )
         }
-
     }
 }
