@@ -29,23 +29,6 @@
             android:onClick="TambahToko"
             android:layout_height="wrap_content"/>
 
-        <TextView
-            android:padding="8dp"
-            android:layout_marginBottom="25dp"
-            android:elevation="50dp"
-            android:layout_marginStart="5dp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:layout_alignRight="@id/PT_TambahToko"
-            android:id="@+id/cart_size"
-            android:textSize="13sp"
-            android:background="@drawable/item_counter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@id/PT_TambahToko"
-            tools:targetApi="lollipop"
-            android:layout_marginLeft="15dp"/>
-
     </RelativeLayout>
 
 
