@@ -1,6 +1,8 @@
 package com.example.nk2
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -104,7 +106,6 @@ class MahasiswaBeranda : AppCompatActivity() {
                     }
                     return true
                 }
-
             })
         }
         return super.onCreateOptionsMenu(menu)

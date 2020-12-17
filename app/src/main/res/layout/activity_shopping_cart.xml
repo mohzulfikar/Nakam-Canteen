@@ -58,13 +58,14 @@
 
 
         <Button
+            android:id="@+id/btn_pesan"
             android:textSize="19sp"
             android:layout_centerVertical="true"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
-            android:padding="10dp"
+            android:padding="5dp"
             android:layout_alignParentEnd="true"
-            android:text="Checkout"
+            android:text="Pesan"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:layout_width="wrap_content"

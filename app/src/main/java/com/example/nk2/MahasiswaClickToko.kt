@@ -60,7 +60,7 @@ class MahasiswaClickToko : AppCompatActivity(){
             // Button cart
             basketButton.setOnClickListener {
                 startActivity(Intent(this, ShoppingCartActivity::class.java))
-                Toast.makeText(basketButton.context, "iye", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(basketButton.context, "iye", Toast.LENGTH_SHORT).show()
             }
 
             Log.d("nilainy itua", menus.size.toString())
