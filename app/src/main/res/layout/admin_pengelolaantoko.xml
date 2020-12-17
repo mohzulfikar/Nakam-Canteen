@@ -11,16 +11,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        tools:listitem="@layout/admin_listview">
+        tools:listitem="@layout/admin_listview"/>
 
-    </androidx.recyclerview.widget.RecyclerView>
+    <RelativeLayout
+        android:id="@+id/showCart"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/PT_TambahToko"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:onClick="TambahToko"
-        app:srcCompat="@drawable/ic_baseline_add_box_24" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/PT_TambahToko"
+            android:src="@drawable/ic_baseline_add_box_24"
+            android:tint="@android:color/white"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:onClick="TambahToko"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_marginBottom="25dp"
+            android:elevation="50dp"
+            android:layout_marginStart="5dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_alignRight="@id/PT_TambahToko"
+            android:id="@+id/cart_size"
+            android:textSize="13sp"
+            android:background="@drawable/item_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/PT_TambahToko"
+            tools:targetApi="lollipop"
+            android:layout_marginLeft="15dp"/>
+
+    </RelativeLayout>
+
+
 
 </LinearLayout>

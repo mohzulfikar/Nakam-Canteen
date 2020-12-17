@@ -4,7 +4,12 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
-android:layout_height="wrap_content">
+android:layout_height="wrap_content"
+android:layout_marginStart="4dp"
+android:layout_marginTop="20dp"
+android:layout_marginEnd="4dp"
+android:layout_marginBottom="4dp"
+app:cardCornerRadius="8dp">
 
 <RelativeLayout
     android:layout_width="match_parent"
@@ -44,22 +49,27 @@ android:layout_height="wrap_content">
                 android:layout_marginTop="2dp"
                 android:text="Tentang"
                 android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/LV_EditAdmin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LV_Tentang"
-
-                android:text="Edit" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
             <Button
                 android:id="@+id/LV_DeleteAdmin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LV_EditAdmin"
+                android:layout_width="65dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="8dp"
+                android:text="Delete"
+                android:textSize="8sp"
+                />
+            <Button
+                android:layout_toStartOf="@+id/LV_DeleteAdmin"
+                android:layout_width="65dp"
+                android:id="@+id/LV_EditAdmin"
+                android:layout_height="45dp"
+                android:text="Edit"
+                android:textSize="8sp"/>
 
-                android:text="Delete" />
 
         </RelativeLayout>
 

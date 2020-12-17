@@ -8,7 +8,41 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RC_user"
         android:layout_width="410dp"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/adser_listviewUser" />
+        android:layout_height="519dp"
+        tools:listitem="@layout/admin_listviewuser" />
+    <RelativeLayout
+        android:id="@+id/showCart"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/basketButton"
+            android:src="@drawable/ic_baseline_add_box_24"
+            android:tint="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:padding="8dp"
+            android:layout_marginBottom="25dp"
+            android:elevation="50dp"
+            android:layout_marginStart="5dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_alignRight="@id/basketButton"
+            android:id="@+id/cart_size"
+            android:textSize="13sp"
+            android:background="@drawable/item_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/basketButton"
+            tools:targetApi="lollipop"
+            android:layout_marginLeft="15dp"/>
+
+    </RelativeLayout>
+
+
 
 </LinearLayout>

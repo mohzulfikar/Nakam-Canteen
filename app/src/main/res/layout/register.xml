@@ -78,7 +78,7 @@
             android:layout_marginRight="30dp"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPersonName" />
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/register_btn_register"
