@@ -3,18 +3,25 @@ package com.example.nk2
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nk2.adapter.MahasiswaBerandaAdapter
 import com.example.nk2.model.Toko
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.user_beranda.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MahasiswaBeranda : AppCompatActivity() {
 
     val fStore = FirebaseFirestore.getInstance()
     var Data: MutableList<Toko> = arrayListOf()
+    var searchList: MutableList<Toko> = arrayListOf()
     var idToko = ""
     var desk = ""
     var nama = ""
@@ -43,7 +50,8 @@ class MahasiswaBeranda : AppCompatActivity() {
                     "${document.id} => $Data"
                 )
             }
-            val adapter = MahasiswaBerandaAdapter(Data, this, this)
+            searchList.addAll(Data)
+            val adapter = MahasiswaBerandaAdapter(searchList, this, this)
             adapter.notifyDataSetChanged()
             //tampilkan data dalam recycler view
             rc_card!!.adapter = adapter
@@ -53,12 +61,6 @@ class MahasiswaBeranda : AppCompatActivity() {
                 "? => $Data"
             )
         }
-//        callbackToko : MyCallback
-//        getToko(object: MyCallback {
-//            override fun onCallback(value: MutableList<Toko>) {
-//                Log.d("nilainya", Data.size.toString())
-//            }
-//        })
     }
 
     fun beranda_profil(view: View) {
@@ -66,72 +68,49 @@ class MahasiswaBeranda : AppCompatActivity() {
         startActivity(intent)
     }
 
-//    override fun onDataChange(){
-//
-//    }
-//
-//    suspend fun getTokos() {
-//        var Data = getAllTokoFirestore().toObject(Toko::class.java)
-//    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        val menuItem = menu!!.findItem(R.id.cari)
+        if (menuItem != null) {
+            val searchView = menuItem.actionView as SearchView
+            searchView.queryHint = "Cari Toko..."
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
+                override fun onQueryTextChange(pencarian: String?): Boolean {
+                    if (pencarian!!.isNotEmpty()){
+                        searchList.clear()
+                        val pencarianQuery = pencarian.toLowerCase(Locale.getDefault())
+                        Data.forEach {
+                            if (it.NamaToko.toLowerCase(Locale.getDefault())!!.contains(pencarianQuery)) {
+                                searchList.add(it)
+                            }
+                        }
+                        if (searchList.size > 0) {
+                            Toast.makeText(this@MahasiswaBeranda, "Ditemukan ${searchList.size} Toko", Toast.LENGTH_SHORT).show()
+                            tv_hasil_cari.visibility = View.GONE
+                        } else {
+                            Toast.makeText(this@MahasiswaBeranda, "Toko Tidak Ditemukan", Toast.LENGTH_SHORT).show()
+                            tv_hasil_cari.visibility = View.VISIBLE
+                        }
+                        rc_card.adapter!!.notifyDataSetChanged()
+                    }
+                    else {
+                        searchList.clear()
+                        searchList.addAll(Data)
+                        rc_card.adapter!!.notifyDataSetChanged()
+                        tv_hasil_cari.visibility = View.GONE
+                    }
+                    return true
+                }
 
-//    suspend fun getAllTokoFirestore(): DocumentSnapshot {
-//        return try {
-//            val data = fStore
-//                .collection("users")
-//                .document("Toko")
-//                .get()
-//                .await()
-//            data
-//        } catch (e: Exception) {
-//            Log.d("Galat", "Galat Mengambil Data")
-//            null!!
-//        }
-////        df. .addOnCompleteListener {
-////            if (it.isSuccessful) {
-////                var tokoItem : Toko
-////                Data.clear()
-////                for (document in it.result!!) {
-////                    idToko = document.id
-////                    nama = document.data["NamaToko"].toString()
-////                    desk = document.data["Deskripsi"].toString()
-////                    telp = document.data["Telp"].toString()
-////                    menu = document.data["Menu"].toString()
-////                    tokoItem = com.example.nk2.model.Toko(idToko, nama, desk, telp, menu)
-////                    Data.add(tokoItem)
-////                    android.util.Log.d(
-////                        android.content.ContentValues.TAG,
-////                        "${document.id} => ${Data}"
-////                    )
-////                }
-////            }
-//    }
-//}
+            })
+        }
+        return super.onCreateOptionsMenu(menu)
+    }
 
-
-//    fun getToko(myCallback: MyCallback) {
-//        fStore.collection("Toko").get().addOnCompleteListener { task ->
-//            if (task.isSuccessful) {
-//                val list = mutableListOf<Toko>()
-//                var tokoItem: Toko
-//                Data.clear()
-//
-////                val types: List<Toko> = documentSnapshots.toObjects(Toko::class.java)
-//                for (document in task.result!!) {
-//                    val name = document.data["name"].toString()
-//                    idToko = document.id
-//                    nama = document.data["NamaToko"].toString()
-//                    desk = document.data["Deskripsi"].toString()
-//                    telp = document.data["Telp"].toString()
-//                    menu = document.data["Menu"].toString()
-//                    tokoItem = com.example.nk2.model.Toko(idToko, nama, desk, telp, menu)
-//                    list.add(tokoItem)
-//
-//                }
-//                myCallback.onCallback(list)
-//            }
-//        }
-//    }
-//    interface MyCallback {
-//        fun onCallback(value: MutableList<Toko>)
-//    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
+    }
 }

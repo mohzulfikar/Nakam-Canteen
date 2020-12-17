@@ -46,4 +46,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/user_beranda_toko_item" />
+
+    <TextView
+        android:id="@+id/tv_hasil_cari"
+        android:visibility="gone"
+        android:layout_width="229dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="16dp"
+        android:text="Toko Tidak Ditemukan"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,8 +18,8 @@ class MahasiswaBerandaAdapter(private val Tokos:MutableList<Toko>, val context: 
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(toko: Toko) {
             with(itemView){
-                tv_toko_nama.text = toko.NamaToko
-                tv_toko_desc.text = toko.Deskripsi
+                tv_toko_nama!!.text = toko.NamaToko
+                tv_toko_desc!!.text = toko.Deskripsi
                 Log.d("nilainyahhh", Tokos.size.toString())
                 cardList.setOnClickListener(CustomOnItemClickListener(adapterPosition, object : CustomOnItemClickListener.OnItemClickCallback {
                     override fun onItemClicked(view: View, position: Int) {
