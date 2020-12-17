@@ -26,6 +26,8 @@
         <activity android:name=".MahasiswaProfil" />
         <activity android:name=".AdminPengelolaanToko" />
         <activity android:name=".AdminEditToko" />
+        <activity android:name=".AdminPengelolaanUser" />
+        <activity android:name=".AdminEditUser" />
     </application>
 
 </manifest>

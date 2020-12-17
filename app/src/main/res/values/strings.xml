@@ -8,5 +8,7 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="pengelolaan_toko">Pengelolaan Toko</string>
+    <string name="pengelolaan_user">Pengelolaan User</string>
     <string name="edit_toko">Form Edit Toko</string>
+    <string name="edit_User">Form Edit User</string>
 </resources>

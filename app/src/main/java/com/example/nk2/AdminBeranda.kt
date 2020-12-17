@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class AdminBeranda: AppCompatActivity() {
@@ -22,7 +23,22 @@ class AdminBeranda: AppCompatActivity() {
                 "Harga" to listOf(1, 2, 3, 4))
         df.set(data)
     }
-    fun Btn_adminEdit  (view: View) {
+
+
+    fun LOGOUT(view: View) {
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent (applicationContext, Login::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun Btn_adminEditUser(view: View) {
+        val intent = Intent (applicationContext, AdminPengelolaanUser::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun Btn_adminEditToko(view: View) {
         val intent = Intent (applicationContext, AdminPengelolaanToko::class.java)
         startActivity(intent)
         finish()
