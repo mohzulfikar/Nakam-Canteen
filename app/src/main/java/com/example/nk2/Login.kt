@@ -24,7 +24,10 @@ class Login:AppCompatActivity() {
 
         val fAuth = FirebaseAuth.getInstance()
 
-
+        if(fAuth.currentUser != null){
+            val ID= fAuth.currentUser!!.uid.toString()
+            checkUserAccesLevel("$ID")
+        }
 
         btnlogin.setOnClickListener {
             val email = loginEmail.getText().toString().trim()
