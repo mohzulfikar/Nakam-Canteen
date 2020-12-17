@@ -10,5 +10,6 @@
     <string name="pengelolaan_toko">Pengelolaan Toko</string>
     <string name="pengelolaan_user">Pengelolaan User</string>
     <string name="edit_toko">Form Edit Toko</string>
+    <string name="register_toko">Register Toko</string>
     <string name="edit_User">Form Edit User</string>
 </resources>

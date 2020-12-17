@@ -18,6 +18,7 @@ class AdminEditToko: AppCompatActivity() {
         supportActionBar?.title = applicationContext.getString(R.string.edit_toko)
         val HeaderNamaToko = findViewById<TextView>(R.id.ET_HEADERnamaToko);
         val NamaToko = findViewById<TextView>(R.id.ET_namaToko);
+        val Telepon = ET_Telp
         val Menu1= findViewById<EditText>(R.id.ET_Menu1);
         val Menu2 = findViewById<EditText>(R.id.ET_Menu2)
         val Harga1 = ET_HargaMenu1
@@ -39,12 +40,14 @@ class AdminEditToko: AppCompatActivity() {
                 Menu2.setText(Menu[1])
                 Harga1.setText(Harga[0].toString())
                 Harga2.setText(Harga[1].toString())
+                Telepon.setText(it.getString("Telp"))
                 Log.d("TAG_ID_Menu", Harga[0].toString())
                 Log.d("TAG_ID_Menu", Harga[1].toString())
             }
         }
 
-        findViewById<Button>(R.id.ET_Update).setOnClickListener {
+
+        ET_Update.setOnClickListener {
             var menu= listOf<String>(Menu1.text.toString(),Menu2.text.toString())
             var harga= listOf(Harga1.text.toString().toLong(), Harga2.text.toString().toLong() )
             df.update("Deskripsi", "${Deskripsi.text}")
