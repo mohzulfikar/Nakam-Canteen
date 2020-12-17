@@ -8,12 +8,15 @@ import com.example.nk2.adapter.MahasiswaClickTokoAdapter
 import com.example.nk2.model.Menu
 import com.example.nk2.model.Toko
 import kotlinx.android.synthetic.main.user_click_toko.*
+import com.example.nk2.ShoppingCart.*
+import io.paperdb.Paper
 
 class MahasiswaClickToko : AppCompatActivity(){
     private var isView = false
     private var toko: Toko? = null
     private var menus: ArrayList<Menu> = arrayListOf()
     private var position: Int = 0
+
     companion object {
         const val EXTRA_TOKO = "extra_toko"
         const val EXTRA_POSITION = "extra_position"
@@ -23,6 +26,7 @@ class MahasiswaClickToko : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_click_toko)
+        Paper.init(applicationContext);
         toko = intent.getParcelableExtra(EXTRA_TOKO)
         if (toko != null) {
             position = intent.getIntExtra(EXTRA_POSITION, 0)
@@ -34,7 +38,7 @@ class MahasiswaClickToko : AppCompatActivity(){
         // parsing ke objek menu
         val ukuran = toko!!.Menu.size
         for (i in 0 until ukuran){
-            menus.add(Menu(toko!!.Menu[i], toko!!.Harga[i]))
+            menus.add(Menu(i, toko!!.Menu[i], toko!!.Harga[i]))
         }
         supportActionBar?.title = applicationContext.getString(R.string.detail_toko)
         menu_rc_card.layoutManager = LinearLayoutManager(this)
@@ -49,11 +53,13 @@ class MahasiswaClickToko : AppCompatActivity(){
             adapter.notifyDataSetChanged()
             //tampilkan data dalam recycler view
             menu_rc_card!!.adapter = adapter
+            cart_size.text = ShoppingCart.getShoppingCartSize().toString()
             Log.d("nilainy itua", menus.size.toString())
             Log.d(
                 android.content.ContentValues.TAG,
                 "? => $menus"
             )
         }
+
     }
 }

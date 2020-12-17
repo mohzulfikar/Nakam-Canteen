@@ -62,6 +62,16 @@
                     android:layout_toEndOf="@+id/imgList"
                     android:text="Harga" />
 
+                <ImageButton
+                    android:id="@+id/btn_rmv_jml_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="4dp"
+                    android:src="@drawable/ic_remove_shopping_cart"
+                    android:tint="@android:color/white" />
+
                 <ImageView
                     android:id="@+id/btn_add_jml_menu"
                     android:layout_width="wrap_content"
