@@ -137,6 +137,11 @@
             android:id="@+id/ET_Update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginLeft="80dp"
+            android:gravity="center"
             android:onClick="UpdateoN"
             android:text="UPDATE" />
 

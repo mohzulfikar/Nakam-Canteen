@@ -15,6 +15,8 @@ import com.example.nk2.R
 import com.example.nk2.model.Toko
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.admin_listview.view.*
+import kotlinx.android.synthetic.main.admin_listview.view.LV_DeleteAdmin
+import kotlinx.android.synthetic.main.admin_listview.view.*
 
 //Tokos yang ada di BErandaAdapter diganti Beranda
 class PengelolaanTokoAdapter(private val Tokos:ArrayList<Toko>,val context: Context,val activity: Activity): RecyclerView.Adapter<PengelolaanTokoAdapter.Holder>() {

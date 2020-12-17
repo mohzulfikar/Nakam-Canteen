@@ -11,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NK2">
+        <activity
+            android:name=".contoh"
+            android:label="@string/title_activity_contoh"
+            android:theme="@style/Theme.NK2.NoActionBar"></activity>
         <activity android:name=".MahasiswaClickToko" />
         <activity
             android:name=".SplashScreen"
