@@ -33,12 +33,6 @@ class AdminEditUser: AppCompatActivity() {
             }
         }
 
-//        val UserInfo = hashMapOf(
-//            "NamaUser" to NamaUser.text,
-//            "Deskripsi" to Deskripsi.text,
-//            "1" to Menu1.text,
-//            "2" to Email.text)
-
         findViewById<Button>(R.id.ET_Update).setOnClickListener {
             df.update("Nama", "${NamaUser.text}")
             df.update("Nim", "${NIM.text}")

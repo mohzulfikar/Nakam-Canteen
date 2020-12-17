@@ -35,6 +35,7 @@
         <activity android:name=".AdminPengelolaanUser" />
         <activity android:name=".AdminEditUser" />
         <activity android:name=".ShoppingCartActivity" />
+        <activity android:name=".AdminRegisterToko" />
     </application>
 
 </manifest>

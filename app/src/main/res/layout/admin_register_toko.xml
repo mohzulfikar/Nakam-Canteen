@@ -20,7 +20,7 @@
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <TextView
-            android:id="@+id/ET_HEADERnamaToko"
+            android:id="@+id/Regis_HeaderNamaToko"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nama Toko"
@@ -30,34 +30,37 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/ET_namaToko"
+            android:id="@+id/Regis_namaToko"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Nama Toko"
             android:inputType="textPersonName"
 
             />
 
         <EditText
-            android:id="@+id/ET_deskripsiToko"
+            android:id="@+id/Regis_deskripsiToko"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Deskripsi"
             android:inputType="textPersonName"
 
             />
 
         <EditText
-            android:id="@+id/ET_Telp"
+            android:id="@+id/Regis_Telp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Nomor Telp"
             android:inputType="textPersonName"
 
             />
 
         <TextView
-            android:id="@+id/ET_menuToko"
+            android:id="@+id/Regis_menuToko"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Menu"
@@ -73,7 +76,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/ET_Menu1"
+                android:id="@+id/Regis_Menu1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -91,10 +94,11 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/ET_HargaMenu1"
+                android:id="@+id/Regis_HargaMenu1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
+                android:hint="Harga1"
                 android:ems="10"
 
                 android:inputType="textPersonName" />
@@ -106,7 +110,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/ET_Menu2"
+                android:id="@+id/Regis_Menu2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -124,21 +128,22 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/ET_HargaMenu2"
+                android:id="@+id/Regis_HargaMenu2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
+                android:hint="Harga 2"
                 android:ems="10"
 
                 android:inputType="textPersonName" />
         </LinearLayout>
 
         <Button
-            android:id="@+id/ET_Update"
+            android:id="@+id/Regis_Create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="UpdateoN"
-            android:text="UPDATE" />
+            android:onClick="Create"
+            android:text="CREATE" />
 
     </LinearLayout>
 

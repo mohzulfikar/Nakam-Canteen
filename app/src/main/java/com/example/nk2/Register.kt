@@ -27,14 +27,8 @@ class Register:AppCompatActivity() {
         val registerPass = findViewById<EditText>(R.id.register_password)
         val btnRegister = findViewById<Button>(R.id.register_btn_register)
 
-
         val fAuth = FirebaseAuth.getInstance()
         val fStore = FirebaseFirestore.getInstance()
-//        if(fAuth.currentUser != null){
-//            val intent = Intent (applicationContext, Login::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
 
         btnRegister.setOnClickListener(View.OnClickListener {
 
@@ -43,8 +37,6 @@ class Register:AppCompatActivity() {
                 val nama = registerNama.getText().toString()
                 val nim = registerNim.getText().toString()
                 val telp = registerTelp.getText().toString()
-
-
 
                 if (TextUtils.isEmpty(email)){
                     registerEmail.setError("Email harus diisi")
