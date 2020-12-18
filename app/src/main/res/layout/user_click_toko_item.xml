@@ -65,8 +65,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="134dp"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginStart="163dp"
+                    android:layout_marginTop="58dp"
                     android:layout_toEndOf="@+id/imgList"
                     android:background="@color/colorPrimary"
                     android:paddingHorizontal="16dp"
@@ -74,25 +74,20 @@
                     android:src="@drawable/ic_remove_shopping_cart"
                     android:tint="@android:color/white" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/btn_add_jml_menu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="200dp"
-                    android:layout_marginTop="65dp"
+                    android:layout_marginStart="226dp"
+                    android:layout_marginTop="58dp"
                     android:layout_toEndOf="@+id/imgList"
-                    app:srcCompat="@drawable/ic_baseline_add_box_24" />
+                    android:background="@color/colorPrimary"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="4dp"
+                    android:src="@drawable/ic_add_shopping"
+                    android:tint ="@android:color/white" />
 
-                <TextView
-                    android:id="@+id/tv_menu_jml"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="236dp"
-                    android:layout_marginTop="68dp"
-                    android:layout_toEndOf="@+id/imgList"
-                    android:text="Jml" />
 
             </RelativeLayout>
 
