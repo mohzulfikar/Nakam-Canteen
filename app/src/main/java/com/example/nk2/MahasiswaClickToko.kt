@@ -1,19 +1,17 @@
 package com.example.nk2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nk2.adapter.MahasiswaClickTokoAdapter
 import com.example.nk2.model.Menu
 import com.example.nk2.model.Toko
-import kotlinx.android.synthetic.main.user_click_toko.*
-import com.example.nk2.ShoppingCart.*
 import io.paperdb.Paper
+import kotlinx.android.synthetic.main.user_click_toko.*
 
-class MahasiswaClickToko : AppCompatActivity(){
+class MahasiswaClickToko : AppCompatActivity() {
     private var isView = false
     private var toko: Toko? = null
     private var menus: ArrayList<Menu> = arrayListOf()
@@ -25,6 +23,7 @@ class MahasiswaClickToko : AppCompatActivity(){
         const val VIEW_MENU = 100
         const val EXTRA_MENU = "extra_menu"
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_click_toko)
@@ -39,7 +38,7 @@ class MahasiswaClickToko : AppCompatActivity(){
         }
         // parsing ke objek menu
         val ukuran = toko!!.Menu.size
-        for (i in 0 until ukuran){
+        for (i in 0 until ukuran) {
             menus.add(Menu(i, toko!!.Menu[i], toko!!.Harga[i]))
         }
         supportActionBar?.title = applicationContext.getString(R.string.detail_toko)
@@ -51,7 +50,7 @@ class MahasiswaClickToko : AppCompatActivity(){
                 tv_toko_klik_desc.text = it.Deskripsi
             }
             val adapter = MahasiswaClickTokoAdapter(menus, this, this)
-            Log.d("menunya = ", menus.toString())
+//            Log.d("menunya = ", menus.toString())
             adapter.notifyDataSetChanged()
             //tampilkan data dalam recycler view
             menu_rc_card!!.adapter = adapter
@@ -59,15 +58,14 @@ class MahasiswaClickToko : AppCompatActivity(){
 
             // Button cart
             basketButton.setOnClickListener {
-                startActivity(Intent(this, ShoppingCartActivity::class.java))
-//                Toast.makeText(basketButton.context, "iye", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, ShoppingCartActivity::class.java)
+                intent.putExtra(ShoppingCartActivity.EXTRA_TOKO, toko)
+                startActivity(intent)
             }
-
-            Log.d("nilainy itua", menus.size.toString())
-            Log.d(
-                android.content.ContentValues.TAG,
-                "? => $menus"
-            )
+//            Log.d(
+//                    android.content.ContentValues.TAG,
+//                    "? => $menus"
+//            )
         }
     }
 }

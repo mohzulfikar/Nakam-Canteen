@@ -16,14 +16,14 @@ object RemoveItemUtil {
         var cnt = item.size
         val targetItem = item.size
 
-        if(clicked == true){
+        if (clicked == true) {
             if (targetItem == 0) {
                 return true
             } else {
                 cnt -= 1
             }
 
-            if (cnt == item.size - 1){
+            if (cnt == item.size - 1) {
                 return true
             } else {
                 return false

@@ -3,7 +3,8 @@
 
     <item android:drawable="@color/amber_50" />
     <item>
-        <bitmap android:src="@drawable/nacanten_resize"
+        <bitmap
+            android:src="@drawable/nacanten_resize"
             android:gravity="center" />
     </item>
 </layer-list>

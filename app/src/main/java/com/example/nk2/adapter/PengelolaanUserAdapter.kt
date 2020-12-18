@@ -18,8 +18,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.admin_listviewuser.view.*
 
 //Users yang ada di BErandaAdapter diganti Beranda
-class PengelolaanUserAdapter(private val Users:ArrayList<Mahasiswa>, val context: Context, val activity: Activity): RecyclerView.Adapter<PengelolaanUserAdapter.Holder>() {
+class PengelolaanUserAdapter(private val Users: ArrayList<Mahasiswa>, val context: Context, val activity: Activity) : RecyclerView.Adapter<PengelolaanUserAdapter.Holder>() {
     val fStore = FirebaseFirestore.getInstance()
+
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(model: Mahasiswa) {
             with(itemView) {
@@ -27,7 +28,7 @@ class PengelolaanUserAdapter(private val Users:ArrayList<Mahasiswa>, val context
                 LV_NIM.text = model.nim
                 LV_EditUser.setOnClickListener(CustomOnItemClickListener(adapterPosition, object : CustomOnItemClickListener.OnItemClickCallback {
                     override fun onItemClicked(view: View, position: Int) {
-                        val item= Users.get(position)
+                        val item = Users.get(position)
                         val intent = Intent(context, AdminEditUser::class.java)
                         intent.putExtra("ID_User", item.id)
                         activity.startActivity(intent)
@@ -35,10 +36,9 @@ class PengelolaanUserAdapter(private val Users:ArrayList<Mahasiswa>, val context
                 }))
                 LV_DeleteUser.setOnClickListener(CustomOnItemClickListener(adapterPosition, object : CustomOnItemClickListener.OnItemClickCallback {
                     override fun onItemClicked(view: View, position: Int) {
-                        val item= Users.get(position)
-                        val ID= item.id
+                        val item = Users.get(position)
+                        val ID = item.id
                         val df = fStore.collection("User").document("$ID").delete()
-                        Log.d("TAG Position:",ID)
                         Users.removeAt(position)
                         notifyDataSetChanged()
                         Toast.makeText(activity, context.getString(R.string.hapus_sukses), Toast.LENGTH_SHORT).show()
@@ -47,18 +47,18 @@ class PengelolaanUserAdapter(private val Users:ArrayList<Mahasiswa>, val context
 
             }
 
-            }
         }
+    }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-            val v = LayoutInflater.from(parent.context).inflate(R.layout.admin_listviewuser,parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.admin_listviewuser, parent, false)
 
-            return Holder(v)
-        }
+        return Holder(v)
+    }
 
-        override fun onBindViewHolder(holder: Holder, position: Int) {
-            holder.bind(Users[position])
-        }
+    override fun onBindViewHolder(holder: Holder, position: Int) {
+        holder.bind(Users[position])
+    }
 
-        override fun getItemCount(): Int = Users?.size
+    override fun getItemCount(): Int = Users?.size
 }

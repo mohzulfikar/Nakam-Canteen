@@ -1,8 +1,6 @@
 package com.example.nk2
 
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -38,7 +36,7 @@ class MahasiswaBeranda : AppCompatActivity() {
 
         val df = fStore.collection("Toko").get().addOnSuccessListener {
             var tokoItem: Toko
-            for(document in it) {
+            for (document in it) {
                 idToko = document.id
                 nama = document.data["NamaToko"].toString()
                 desk = document.data["Deskripsi"].toString()
@@ -47,21 +45,21 @@ class MahasiswaBeranda : AppCompatActivity() {
                 harga = document.data["Harga"] as ArrayList<Long>
                 tokoItem = Toko(idToko, nama, desk, telp, menu, harga)
                 Data.add(tokoItem)
-                Log.d(
-                    android.content.ContentValues.TAG,
-                    "${document.id} => $Data"
-                )
+//                Log.d(
+//                        android.content.ContentValues.TAG,
+//                        "${document.id} => $Data"
+//                )
             }
             searchList.addAll(Data)
             val adapter = MahasiswaBerandaAdapter(searchList, this, this)
             adapter.notifyDataSetChanged()
             //tampilkan data dalam recycler view
             rc_card!!.adapter = adapter
-            Log.d("nilainya", Data.size.toString())
-            Log.d(
-                android.content.ContentValues.TAG,
-                "? => $Data"
-            )
+//            Log.d("nilainya", Data.size.toString())
+//            Log.d(
+//                    android.content.ContentValues.TAG,
+//                    "? => $Data"
+//            )
         }
     }
 
@@ -76,39 +74,43 @@ class MahasiswaBeranda : AppCompatActivity() {
         if (menuItem != null) {
             val searchView = menuItem.actionView as SearchView
             searchView.queryHint = "Cari Toko..."
-            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return true
                 }
+
                 override fun onQueryTextChange(pencarian: String?): Boolean {
-                    if (pencarian!!.isNotEmpty()){
-                        searchList.clear()
-                        val pencarianQuery = pencarian.toLowerCase(Locale.getDefault())
-                        Data.forEach {
-                            if (it.NamaToko.toLowerCase(Locale.getDefault())!!.contains(pencarianQuery)) {
-                                searchList.add(it)
-                            }
-                        }
-                        if (searchList.size > 0) {
-                            Toast.makeText(this@MahasiswaBeranda, "Ditemukan ${searchList.size} Toko", Toast.LENGTH_SHORT).show()
-                            tv_hasil_cari.visibility = View.GONE
-                        } else {
-                            Toast.makeText(this@MahasiswaBeranda, "Toko Tidak Ditemukan", Toast.LENGTH_SHORT).show()
-                            tv_hasil_cari.visibility = View.VISIBLE
-                        }
-                        rc_card.adapter!!.notifyDataSetChanged()
-                    }
-                    else {
-                        searchList.clear()
-                        searchList.addAll(Data)
-                        rc_card.adapter!!.notifyDataSetChanged()
-                        tv_hasil_cari.visibility = View.GONE
-                    }
-                    return true
+                    return searchMenu(pencarian)
                 }
             })
         }
         return super.onCreateOptionsMenu(menu)
+    }
+
+    fun searchMenu(namaMenu: String?): Boolean {
+        if (namaMenu!!.isNotEmpty()) {
+            searchList.clear()
+            val pencarianQuery = namaMenu.toLowerCase(Locale.getDefault())
+            Data.forEach {
+                if (it.NamaToko.toLowerCase(Locale.getDefault())!!.contains(pencarianQuery)) {
+                    searchList.add(it)
+                }
+            }
+            if (searchList.size > 0) {
+                Toast.makeText(this@MahasiswaBeranda, "Ditemukan ${searchList.size} Toko", Toast.LENGTH_SHORT).show()
+                tv_hasil_cari.visibility = View.GONE
+            } else {
+                Toast.makeText(this@MahasiswaBeranda, "Toko Tidak Ditemukan", Toast.LENGTH_SHORT).show()
+                tv_hasil_cari.visibility = View.VISIBLE
+            }
+            rc_card.adapter!!.notifyDataSetChanged()
+        } else {
+            searchList.clear()
+            searchList.addAll(Data)
+            rc_card.adapter!!.notifyDataSetChanged()
+            tv_hasil_cari.visibility = View.GONE
+        }
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

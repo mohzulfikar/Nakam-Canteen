@@ -1,72 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
 
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="wrap_content">
-
-<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:padding="5dp">
+    android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardList"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="4dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp">
 
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="15dp">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="4dp">
 
-            <TextView
-                android:id="@+id/LV_NamaUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NamaToko"
-                android:textSize="18sp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="15dp">
 
-            <TextView
-                android:id="@+id/LV_NIM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LV_NamaUser"
-                android:layout_marginTop="2dp"
-                android:text="Tentang"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/LV_NamaUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NamaToko"
+                    android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/LV_EditUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LV_NIM"
+                <TextView
+                    android:id="@+id/LV_NIM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/LV_NamaUser"
+                    android:layout_marginTop="2dp"
+                    android:text="Tentang"
+                    android:textSize="18sp" />
 
-                android:text="Edit" />
+                <Button
+                    android:id="@+id/LV_EditUser"
+                    android:layout_width="65dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="8dp"
+                    android:text="Edit"
+                    android:textSize="8sp"
+                    />
+                <Button
+                    android:layout_toStartOf="@+id/LV_EditUser"
+                    android:layout_width="65dp"
+                    android:id="@+id/LV_DeleteUser"
+                    android:layout_height="45dp"
+                    android:text="Delete"
+                    android:textSize="8sp"/>
 
-            <Button
-                android:id="@+id/LV_DeleteUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LV_EditUser"
-
-                android:text="Delete" />
-
-        </RelativeLayout>
+            </RelativeLayout>
 
 
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-</RelativeLayout>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

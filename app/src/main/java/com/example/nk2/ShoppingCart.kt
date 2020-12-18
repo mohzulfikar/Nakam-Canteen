@@ -1,7 +1,5 @@
 package com.example.nk2
 
-import android.content.Context
-import android.widget.Toast
 import io.paperdb.Paper
 
 class ShoppingCart {
@@ -20,7 +18,7 @@ class ShoppingCart {
             ShoppingCart.saveCart(cart)
         }
 
-        fun removeItem(cartItem: CartItem, context: Context) {
+        fun removeItem(cartItem: CartItem) {
             val cart = ShoppingCart.getCart()
 
             val targetItem = cart.singleOrNull { it.id == cartItem.id }

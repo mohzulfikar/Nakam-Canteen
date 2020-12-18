@@ -1,8 +1,6 @@
 package com.example.nk2
 
-import com.example.nk2.model.Toko
 import java.util.*
-import kotlin.collections.ArrayList
 
 object SearchUtil {
     var Data = listOf<String>("Fikar", "Rafi", "Bumba", "Afifun", "Tokotos")
@@ -10,10 +8,10 @@ object SearchUtil {
 
     // Method search toko with the logics
     fun searchToko(
-        keyword: String
+            keyword: String
     ): Boolean {
         // Cek keyworad apakah kosong
-        if (keyword!!.isNotEmpty()){
+        if (keyword!!.isNotEmpty()) {
             val pencarianQuery = keyword.toLowerCase(Locale.getDefault())
             Data.forEach {
                 if (it.toLowerCase(Locale.getDefault())!!.contains(pencarianQuery)) {

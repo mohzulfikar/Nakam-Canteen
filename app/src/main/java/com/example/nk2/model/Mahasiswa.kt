@@ -2,6 +2,7 @@ package com.example.nk2.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+
 @Parcelize
 data class Mahasiswa(
         var id: String,
@@ -9,4 +10,4 @@ data class Mahasiswa(
         var nim: String,
         var telp: String,
         var email: String
-        ) : Parcelable
+) : Parcelable

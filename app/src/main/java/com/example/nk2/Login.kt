@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class Login:AppCompatActivity() {
+class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
@@ -24,8 +24,8 @@ class Login:AppCompatActivity() {
 
         val fAuth = FirebaseAuth.getInstance()
 
-        if(fAuth.currentUser != null){
-            val ID= fAuth.currentUser!!.uid.toString()
+        if (fAuth.currentUser != null) {
+            val ID = fAuth.currentUser!!.uid.toString()
             checkUserAccesLevel("$ID")
         }
 
@@ -33,27 +33,26 @@ class Login:AppCompatActivity() {
             val email = loginEmail.getText().toString().trim()
             val password = loginPass.getText().toString().trim()
 
-            if (TextUtils.isEmpty(email)){
+            if (TextUtils.isEmpty(email)) {
                 loginEmail.setError("Email harus diisi")
                 return@setOnClickListener
             }
-            if (TextUtils.isEmpty(password)){
+            if (TextUtils.isEmpty(password)) {
                 loginPass.setError("Password harus diisi")
                 return@setOnClickListener
             }
-            if(password.length < 6){
+            if (password.length < 6) {
                 loginPass.setError("Password harus lebih dari 6 karakter")
                 return@setOnClickListener
             }
 
             //Database
-            fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
-                if(it.isSuccessful){
-                    Toast.makeText(this,"User Berhasil Masuk",Toast.LENGTH_SHORT).show()
+            fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    Toast.makeText(this, "User Berhasil Masuk", Toast.LENGTH_SHORT).show()
                     checkUserAccesLevel(it.getResult()!!.user!!.uid)
-                }
-                else {
-                    Toast.makeText(this,"Email/Password Salah",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Email/Password Salah", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -64,21 +63,19 @@ class Login:AppCompatActivity() {
         val df = fStore.collection("User").document(uid)
 
         df.get().addOnSuccessListener {
-            Log.d("TAG","Berhasil Login: "+ it.getData())
-
-            if(it.getString("isAdmin") == "1"){
-                startActivity(Intent (applicationContext, AdminBeranda::class.java))
-            }else if(it.getString("isUser") == "1"){
-                startActivity(Intent (applicationContext, MahasiswaBeranda::class.java))
+            if (it.getString("isAdmin") == "1") {
+                startActivity(Intent(applicationContext, AdminBeranda::class.java))
+            } else if (it.getString("isUser") == "1") {
+                startActivity(Intent(applicationContext, MahasiswaBeranda::class.java))
             }
-        }.addOnFailureListener{
-                Toast.makeText(this,"Akun tidak ada",Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(this, "Akun tidak ada", Toast.LENGTH_SHORT).show()
         }
     }
 
 
     fun register(view: View) {
-        val intent = Intent (applicationContext, Register::class.java)
+        val intent = Intent(applicationContext, Register::class.java)
         startActivity(intent)
         finish()
     }

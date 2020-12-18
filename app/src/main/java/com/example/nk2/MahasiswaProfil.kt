@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class MahasiswaProfil: AppCompatActivity() {
+class MahasiswaProfil : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_profil)
@@ -26,13 +26,11 @@ class MahasiswaProfil: AppCompatActivity() {
         }
 
 
-
-
     }
 
     fun profil_logout(view: View) {
         FirebaseAuth.getInstance().signOut()
-        val intent = Intent (applicationContext, Login::class.java)
+        val intent = Intent(applicationContext, Login::class.java)
         startActivity(intent)
         finish()
     }

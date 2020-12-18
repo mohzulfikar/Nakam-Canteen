@@ -7,11 +7,11 @@ class LoginUtilTest {
     @Test
     fun `max attempt is 3 return false`() {
         val result = LoginUtil.validateLoginInput(
-            "gedelixa@ub.ac.id",
-            "password123",
-            "1",
-            "0",
-            3
+                "gedelixa@ub.ac.id",
+                "password123",
+                "1",
+                "0",
+                3
         )
         Truth.assertThat(result).isFalse()
     }
@@ -19,11 +19,11 @@ class LoginUtilTest {
     @Test
     fun `email and password are valid as user return true`() {
         val result = LoginUtil.validateLoginInput(
-            "a@gmail.com",
-            "aaaaaaa",
-            "1",
-            "0",
-            1
+                "a@gmail.com",
+                "aaaaaaa",
+                "1",
+                "0",
+                1
         )
         Truth.assertThat(result).isTrue()
     }
@@ -31,11 +31,11 @@ class LoginUtilTest {
     @Test
     fun `email and password are valid as admin return true`() {
         val result = LoginUtil.validateLoginInput(
-            "c@gmail.com",
-            "ccccccc",
-            "0",
-            "1",
-            0
+                "c@gmail.com",
+                "ccccccc",
+                "0",
+                "1",
+                0
         )
         Truth.assertThat(result).isTrue()
     }
@@ -43,11 +43,11 @@ class LoginUtilTest {
     @Test
     fun `email and password are wrong return false`() {
         val result = LoginUtil.validateLoginInput(
-            "gedelixab@ub.ac.id",
-            "password1235",
-            "1",
-            "0",
-            2
+                "gedelixab@ub.ac.id",
+                "password1235",
+                "1",
+                "0",
+                2
         )
         Truth.assertThat(result).isFalse()
     }

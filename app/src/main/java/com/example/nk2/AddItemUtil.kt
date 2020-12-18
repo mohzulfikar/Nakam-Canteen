@@ -1,7 +1,5 @@
 package com.example.nk2
 
-import java.util.*
-
 object AddItemUtil {
     val item = listOf<String>()
     var clicked = true
@@ -16,18 +14,14 @@ object AddItemUtil {
         var cnt = item.size
         val targetItem = item.size
 
-        if(clicked == true){
+        if (clicked == true) {
             if (targetItem == 0) {
                 cnt += quantity
             } else {
                 cnt += quantity
             }
 
-            if (cnt == item.size + quantity){
-                return true
-            } else {
-                return false
-            }
+            return cnt == item.size + quantity
         } else {
             return false
         }

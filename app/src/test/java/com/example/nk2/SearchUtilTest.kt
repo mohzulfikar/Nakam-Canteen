@@ -7,7 +7,7 @@ class SearchUtilTest {
     @Test
     fun `keyword masih kosong return false`() {
         val result = SearchUtil.searchToko(
-            ""
+                ""
         )
         Truth.assertThat(result).isFalse()
     }
@@ -15,7 +15,7 @@ class SearchUtilTest {
     @Test
     fun `pencarian berhasil return true`() {
         val result = SearchUtil.searchToko(
-            "Toko"
+                "Toko"
         )
         Truth.assertThat(result).isTrue()
     }
@@ -23,7 +23,7 @@ class SearchUtilTest {
     @Test
     fun `pencarian tidak berhasil karena tidak ada nama toko return false`() {
         val result = SearchUtil.searchToko(
-            "wiongiwhjwegiwjwg0g"
+                "wiongiwhjwegiwjwg0g"
         )
         Truth.assertThat(result).isFalse()
     }

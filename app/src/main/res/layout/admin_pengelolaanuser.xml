@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_add_box_24"
             android:tint="@android:color/white"
-            android:onClick="RegisUser"/>
+            android:onClick="RegisUser" />
 
     </RelativeLayout>
 
